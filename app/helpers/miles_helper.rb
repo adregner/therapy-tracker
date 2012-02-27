@@ -1,0 +1,2 @@
+module MilesHelper
+end

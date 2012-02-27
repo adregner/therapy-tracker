@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  datetime: 2012-02-26 11:22:31
+  duration: 1
+  client: 
+
+two:
+  datetime: 2012-02-26 11:22:31
+  duration: 1
+  client: 

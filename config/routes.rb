@@ -1,4 +1,22 @@
 Therapy::Application.routes.draw do
+  resources :miles
+
+  resources :line_items
+
+  resources :visits
+
+  resources :invoices
+
+  resources :clients
+
+  resources :agencies
+
+  resources :rates
+
+  resources :companies
+
+  resources :contacts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @mile.date %>
+</p>
+
+<p>
+  <b>Total miles:</b>
+  <%= @mile.total_miles %>
+</p>
+
+
+<%= link_to 'Edit', edit_mile_path(@mile) %> |
+<%= link_to 'Back', miles_path %>
