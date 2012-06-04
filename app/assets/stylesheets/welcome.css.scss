@@ -1,0 +1,26 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+iframe {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+body {
+}
+ul {
+    padding: 0;
+}
+li {
+    list-style-type: none;
+    display: inline;
+    padding: 5px 15px;
+    margin: 0;
+}
+#visit-frame {
+    height: 25%;
+}
+#contact-frame {
+    height: 25%;
+}

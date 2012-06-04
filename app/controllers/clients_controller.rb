@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+  before_filter :all_sub_objects,  :only => [:edit, :with, :copy, :update, :new]
+
   # GET /clients
   # GET /clients.json
   def index
@@ -80,4 +82,14 @@ class ClientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def all_sub_objects
+      @companies = Company.find(:all, :order => "name")
+      @contacts = Contact.find(:all, :order => "last_name")
+      @agencies = Agency.find(:all, :order => "name")
+      @rates = Rate.find(:all, :order => "value")
+    end
+
 end

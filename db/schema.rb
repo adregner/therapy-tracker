@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226174507) do
+ActiveRecord::Schema.define(:version => 20120602170957) do
 
   create_table "agencies", :force => true do |t|
     t.string   "name"
@@ -65,16 +65,6 @@ ActiveRecord::Schema.define(:version => 20120226174507) do
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"
 
-  create_table "line_items", :force => true do |t|
-    t.integer  "invoice_id"
-    t.integer  "visit_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
-  add_index "line_items", ["visit_id"], :name => "index_line_items_on_visit_id"
-
   create_table "miles", :force => true do |t|
     t.datetime "date"
     t.integer  "total_miles"
@@ -83,19 +73,21 @@ ActiveRecord::Schema.define(:version => 20120226174507) do
   end
 
   create_table "rates", :force => true do |t|
-    t.integer  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "value",      :precision => 6, :scale => 2
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "visits", :force => true do |t|
     t.datetime "datetime"
-    t.integer  "duration"
+    t.decimal  "duration",   :precision => 4, :scale => 2
     t.integer  "client_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "invoice_id"
   end
 
   add_index "visits", ["client_id"], :name => "index_visits_on_client_id"
+  add_index "visits", ["invoice_id"], :name => "index_visits_on_invoice_id"
 
 end

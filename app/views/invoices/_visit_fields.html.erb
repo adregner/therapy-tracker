@@ -1,0 +1,7 @@
+<p class="fields">
+<%= f.label :datetime, v.datetime %> | 
+<%= f.label :duration, v.duration %> | 
+<%= f.label :full_name, v.full_name %> | 
+<%= f.hidden_field "visit_id_"+n.to_s, :value => v.id %>
+<%= link_to_function("remove", "remove_visit(this)") %>
+</p>

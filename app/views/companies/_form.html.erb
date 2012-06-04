@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :contact %><br />
-    <%= f.text_field :contact %>
+    <%= f.select :contact_id, @contacts.collect {|con| ["%s, %s" % [con.last_name, con.first_name], con.id] }, { :include_blank => true } %>
+    <%= link_to 'New contact', new_contact_path, :onclick => "return open_in_new(this)" %>
   </div>
   <div class="actions">
     <%= f.submit %>

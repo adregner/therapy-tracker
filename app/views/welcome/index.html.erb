@@ -1,0 +1,10 @@
+<h1>Therapy Tracker</h1>
+
+<ul>
+  <li><a href="<%= url_for(:controller => 'clients') %>">Clients</a></li>
+  <li><a href="<%= url_for(:controller => 'invoices') %>">Invoices</a></li>
+</ul>
+
+<iframe src="<%= url_for(:controller => 'visits') %>" id="visit-frame"></iframe>
+
+<iframe src="<%= url_for(:controller => 'contacts') %>" id="contact-frame"></iframe>

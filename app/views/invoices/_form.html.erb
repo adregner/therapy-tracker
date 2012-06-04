@@ -13,11 +13,21 @@
 
   <div class="field">
     <%= f.label :total %><br />
-    <%= f.number_field :total %>
+    <span id="total_amount"><%= @invoice.total %></span>
   </div>
   <div class="field">
     <%= f.label :company %><br />
-    <%= f.text_field :company %>
+    <%= f.select :company_id, @companies.collect {|cop| [cop.name, cop.id] }, { :include_blank => true }, :onchange => "update_vists()" %>
+    <%= link_to 'New company', new_company_path, :onclick => "return open_in_new(this)" %>
+  </div>
+  <div class="field">
+    <%= f.label :visits %><br />
+    <% n = 0 %>
+    <% @visits.each do |v| %>
+      <%= render "visit_fields", :f => f, :v => v, :n => n %>
+      <% n += 1 %>
+    <% end %>
+    <%= f.hidden_field "max_visit_n", :value => (n-1) %>
   </div>
   <div class="actions">
     <%= f.submit %>

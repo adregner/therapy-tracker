@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_filter :all_sub_objects,  :only => [:edit, :with, :copy, :update, :new]
+
   # GET /companies
   # GET /companies.json
   def index
@@ -80,4 +82,11 @@ class CompaniesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+
+    def all_sub_objects
+      @contacts = Contact.find(:all, :order => "last_name")
+    end
+  
 end

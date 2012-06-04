@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function($) {
+    if(window.opener) {
+        if($('#notice')[0]) {
+            var theNotice = $('#notice')[0];
+            if(theNotice.innerHTML.indexOf("was successfully created.") > 0) {
+                window.opener.location.reload();
+                window.close();
+            }
+        }
+    }
+});

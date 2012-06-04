@@ -1,4 +1,3 @@
-<h1>Listing clients</h1>
 
 <table>
   <tr>
@@ -13,10 +12,10 @@
 
 <% @clients.each do |client| %>
   <tr>
-    <td><%= client.company %></td>
-    <td><%= client.contact %></td>
-    <td><%= client.agency %></td>
-    <td><%= client.rate %></td>
+    <td><%= client.company.name %></td>
+    <td><%= client.contact.reverse_name %></td>
+    <td><%= client.agency.name %></td>
+    <td><%= client.rate.value %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>
     <td><%= link_to 'Destroy', client, confirm: 'Are you sure?', method: :delete %></td>

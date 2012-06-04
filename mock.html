@@ -1,0 +1,115 @@
+<style type="text/css">
+html, body {
+	margin: 0;
+	padding: 0;
+}
+#tabs {
+	background: #eee;
+	border: 1px solid black;
+}
+.tab {
+	float: left;
+}
+.tab > a {
+	display: block;
+	text-align: center;
+	padding: 10px 45px;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	font-family: "Comic Sans MS";
+}
+.window {
+	display: none;
+}
+iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+</style>
+<script type="text/javascript" src="scriptaculous/prototype.js"></script>
+<!-- <script type="text/javascript" src="scriptaculous/scriptaculous.js"></script> -->
+<script type="text/javascript">
+var onDomLoaded = function() {
+	if(window.location.port != 3000) {
+		$$('iframe').each(function(ifrm){
+			ifrm.src = 'http://localhost:3000/' + ifrm.src.split('/')[3];
+		});
+	}
+	
+	$$('#tabs > .tab > a:first-child').each(function(tab_link){
+		tab_link.observe('click', function(ev){
+			var gogo = ev.target.href.split('#')[1];
+			$('window').update($(gogo).select('.window')[0].innerHTML);
+			$$('#tabs > .tab > a:first-child').setStyle({
+				background: 'transparent'
+			});
+			$$('#tabs > .tab > a:first-child').setStyle({
+				background: 'transparent'
+			});
+		});
+	});
+}
+
+Event.observe(window, 'dom:loaded', onDomLoaded);
+</script>
+
+<div id="tabs">
+
+	<div class="tab" id="agencies">
+		<a href="#agencies">Agency</a>
+		<div class="window">
+			<iframe src="/agencies"></iframe>
+		</div> <!-- /.window -->
+	</div> <!-- /#agencies.tab -->
+
+	<div class="tab" id="contacts">
+		<a href="#contacts">Contacts</a>
+		<div class="window">
+			<iframe src="/contacts"></iframe>
+		</div> <!-- /.window -->
+	</div> <!-- /#contacts.tab -->
+
+	<div class="tab" id="companies">
+		<a href="#companies">Companies</a>
+		<div class="window">
+			<iframe src="/companies"></iframe>
+		</div> <!-- /.window -->
+	</div> <!-- /#companies.tab -->
+
+	<div class="tab" id="clients">
+		<a href="#clients">Clients</a>
+		<div class="window">
+			<iframe src="/clients"></iframe>
+		</div> <!-- /.window -->
+	</div> <!-- /#clients.tab -->
+
+	<div class="tab" id="visits">
+		<a href="#visits">Visits</a>
+		<div class="window">
+			<iframe src="/visits"></iframe>
+		</div> <!-- /.window -->
+	</div> <!-- /#visits.tab -->
+
+	<div class="tab" id="invoices">
+		<a href="#invoices">Invoices</a>
+		<div class="window">
+			<iframe src="/invoices"></iframe>
+		</div> <!-- /.window -->
+	</div> <!-- /#invoices.tab -->
+
+	<div class="tab" id="miles">
+		<a href="#miles">Miles</a>
+		<div class="window">
+			<iframe src="/miles"></iframe>
+		</div> <!-- /.window -->
+	</div> <!-- /#miles.tab -->
+	
+	<div style="clear:both"></div>
+
+</div> <!-- /#tab -->
+
+<div id="window"></div>

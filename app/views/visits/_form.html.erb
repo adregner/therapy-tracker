@@ -13,15 +13,16 @@
 
   <div class="field">
     <%= f.label :datetime %><br />
-    <%= f.datetime_select :datetime %>
+    <%= f.datetime_select :datetime,
+      :add_month_numbers=>true, :start_year=>Time.now.year-1, :end_year=>Time.now.year+1, :minute_step => 15 %>
   </div>
   <div class="field">
     <%= f.label :duration %><br />
-    <%= f.number_field :duration %>
+    <%= f.select :duration, [0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0], :selected=>1.0 %>
   </div>
   <div class="field">
     <%= f.label :client %><br />
-    <%= f.text_field :client %>
+    <%= f.select :client, @clients_select %>
   </div>
   <div class="actions">
     <%= f.submit %>

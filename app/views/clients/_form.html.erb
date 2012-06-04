@@ -13,19 +13,23 @@
 
   <div class="field">
     <%= f.label :company %><br />
-    <%= f.text_field :company %>
+    <%= f.select :company_id, @companies.collect {|cop| [cop.name, cop.id] }, { :include_blank => true } %>
+    <%= link_to 'New company', new_company_path, :onclick => "return open_in_new(this)" %>
   </div>
   <div class="field">
     <%= f.label :contact %><br />
-    <%= f.text_field :contact %>
+    <%= f.select :contact_id, @contacts.collect {|con| [con.reverse_name, con.id] }, { :include_blank => true } %>
+    <%= link_to 'New contact', new_contact_path, :onclick => "return open_in_new(this)" %>
   </div>
   <div class="field">
     <%= f.label :agency %><br />
-    <%= f.text_field :agency %>
+    <%= f.select :agency_id, @agencies.collect {|ag| [ag.name, ag.id] }, { :include_blank => true } %>
+    <%= link_to 'New agency', new_agency_path, :onclick => "return open_in_new(this)" %>
   </div>
   <div class="field">
     <%= f.label :rate %><br />
-    <%= f.text_field :rate %>
+    <%= f.select :rate_id, @rates.collect {|ra| [ra.dollars, ra.id] }, { :include_blank => true } %>
+    <%= link_to 'New rate', new_rate_path, :onclick => "return open_in_new(this)" %>
   </div>
   <div class="actions">
     <%= f.submit %>
